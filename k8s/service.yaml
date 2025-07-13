@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-2-devops-service
+spec:
+  selector:
+    app: devops-2-devops
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

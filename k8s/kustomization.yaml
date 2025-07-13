@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+images:
+- name: devops-2-devops
+  newName: gbrlls/devops-2-devops
+  newTag: da914e296ce5adf1c0dfa0e8f1fe71266d6cec0f
