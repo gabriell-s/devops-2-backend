@@ -13,12 +13,22 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 import environ
+import os
 
 # Inicializar o objeto environ
 env = environ.Env()
 
 # Lê o arquivo .env
-environ.Env.read_env()
+# environ.Env.read_env()
+
+
+# Define o caminho do arquivo .env
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+env_file = os.path.join(BASE_DIR, ".env")
+
+# Carrega o arquivo .env se existir
+if os.path.exists(env_file):
+    environ.Env.read_env(env_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -102,15 +112,15 @@ CSRF_TRUSTED_ORIGINS = [
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+print("DATABASE_URL:", env("DATABASE_URL"))
+
 DATABASES = {
     # "default": {
     #     "ENGINE": "django.db.backends.sqlite3",
     #     "NAME": BASE_DIR / "db.sqlite3",
     # }
-
     #'default': env.db()
-    
-    'default': env.db('DATABASE_URL', default='sqlite:///db.sqlite3')
+    "default": env.db("DATABASE_URL", default="sqlite:///db.sqlite3")
 }
 
 
