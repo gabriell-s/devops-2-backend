@@ -15,8 +15,11 @@ jobs:
         with:
           python-version: 3.10.12
       - run: pip install -r requirements.txt
-      - run: pytest
 
+      - name: Set fake DATABASE_URL
+        run: |
+          echo "DATABASE_URL=postgresql://fake:fake@localhost:5432/fake" >> $GITHUB_ENV
+      - run: pytest
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
