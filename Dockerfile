@@ -20,6 +20,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the Django project code
 COPY . /app/
+COPY ./static /app/static
+
 
 # Collect static files (important for production)
 RUN python manage.py collectstatic --noinput
