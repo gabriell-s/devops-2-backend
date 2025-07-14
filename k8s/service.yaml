@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: devops-2-devops-service
 spec:
+  type: NodePort
   selector:
     app: devops-2-devops
   ports:
