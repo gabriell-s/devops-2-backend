@@ -4,6 +4,9 @@ resources:
 - deployment.yaml
 - service.yaml
 images:
+- name: devops-2-backend
+  newName: gbrlls/devops-2-backend
+  newTag: e15e20e92655b5e1e1fc49c9c1355b4505612737
 - name: devops-2-devops
   newName: gbrlls/devops-2-devops
   newTag: da914e296ce5adf1c0dfa0e8f1fe71266d6cec0f
