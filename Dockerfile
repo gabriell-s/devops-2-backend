@@ -25,7 +25,7 @@ COPY . /app/
 RUN python manage.py collectstatic --noinput
 
 # Expose the port where Gunicorn/uWSGI will run
-EXPOSE 8000
+EXPOSE 8080
 
 # Command to run the Django application with a production-ready WSGI server like Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "your_project_name.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "your_project_name.wsgi:application"]

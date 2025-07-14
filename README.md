@@ -39,7 +39,7 @@ poetry run python manage.py createsuperuser
 poetry run python manage.py runserver
 ```
 
-Visit: [http://localhost:8000](http://localhost:8000)
+Visit: [http://localhost:8080](http://localhost:8080)
 
 ---
 

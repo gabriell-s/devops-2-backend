@@ -7,5 +7,6 @@ spec:
     app: devops-2-devops
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8000
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
