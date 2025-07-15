@@ -6,7 +6,7 @@ resources:
 images:
 - name: devops-2-backend
   newName: gbrlls/devops-2-backend
-  newTag: 540d528e68f08e2b4bedaedd7b7736193b0505d3
+  newTag: c3539403e217fedd3326c7e7dc0175b7101598fc
 - name: devops-2-devops
   newName: gbrlls/devops-2-devops
   newTag: da914e296ce5adf1c0dfa0e8f1fe71266d6cec0f
