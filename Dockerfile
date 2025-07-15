@@ -4,7 +4,6 @@ FROM python:3.10-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DATABASE_URL=${DATABASE_URL}
 
 # Set the working directory
 WORKDIR /app
@@ -19,16 +18,16 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the Django project code
+# Copy the application
 COPY . /app/
 COPY ./static /app/static
 
+# Adiciona o entrypoint
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Collect static files (important for production)
-RUN python manage.py collectstatic --noinput
-
-# Expose the port where Gunicorn/uWSGI will run
+# Expor a porta usada pelo Gunicorn
 EXPOSE 8080
 
-# Command to run the Django application with a production-ready WSGI server like Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "your_project_name.wsgi:application"]
+# Executa o entrypoint
+CMD ["/entrypoint.sh"]

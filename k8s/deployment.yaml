@@ -17,6 +17,19 @@ spec:
           image: devops-2-backend
           ports:
             - containerPort: 8080
-          envFrom:
-            - secretRef:
-                name: backend-env-secret
+          env:
+            - name: DEBUG
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DEBUG
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DATABASE_URL
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: SECRET_KEY
